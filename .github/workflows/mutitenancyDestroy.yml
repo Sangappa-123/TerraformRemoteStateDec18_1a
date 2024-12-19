@@ -1,4 +1,4 @@
-name: Terraform Multi-Tenancy Workflow
+name: Terraform Multi-Tenancy Destroy Workflow
 
 on:
   workflow_dispatch:
