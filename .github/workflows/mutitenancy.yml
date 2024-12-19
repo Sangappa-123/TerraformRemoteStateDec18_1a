@@ -35,15 +35,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      # Step 4: Select or Create Workspace
+      # Step 4: Initialize Terraform Backend
+      - name: Terraform Init
+        run: terraform init -reconfigure
+        working-directory: ${{ env.TF_ACTION_WORKING_DIR }}
+
+      # Step 5: Select or Create Workspace
       - name: Select Terraform Workspace
         run: |
           terraform workspace select ${{ github.event.inputs.environment }} || terraform workspace new ${{ github.event.inputs.environment }}
-        working-directory: ${{ env.TF_ACTION_WORKING_DIR }}
-
-      # Step 5: Initialize Terraform
-      - name: Terraform Init
-        run: terraform init
         working-directory: ${{ env.TF_ACTION_WORKING_DIR }}
 
       # Step 6: Run Terraform Plan
