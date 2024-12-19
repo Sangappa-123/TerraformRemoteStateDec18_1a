@@ -40,7 +40,7 @@ jobs:
         run: |
           terraform init \
             -reconfigure \
-            -backend-config="key=terraform/${{ github.event.inputs.environment }}/terraform.tfstate"
+            -backend-config="key=multitenancy/${{ github.event.inputs.environment }}/terraform.tfstate"
         working-directory: ${{ env.TF_ACTION_WORKING_DIR }}
 
       # Step 5: Select or Create Workspace
