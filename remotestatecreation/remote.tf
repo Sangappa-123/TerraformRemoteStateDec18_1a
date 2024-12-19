@@ -2,8 +2,8 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "tf_state" {
-  bucket        = "my-terraform-state-bucket-1234"
+resource "aws_s3_bucket" "tf_state-1212" {
+  bucket        = "my-terraform-state-bucket-1212"
   acl           = "private"
   versioning {
     enabled = true
